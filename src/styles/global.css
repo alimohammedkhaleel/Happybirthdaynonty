@@ -134,6 +134,25 @@ img, svg, canvas, video {
   padding: 0 clamp(1rem, 3.5vw, 2rem);
 }
 
+/* Responsive Opening Screen SVG Control */
+@media (min-width: 769px) {
+  .opening-svg-mobile {
+    display: none !important;
+  }
+  .opening-svg-desktop {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .opening-svg-desktop {
+    display: none !important;
+  }
+  .opening-svg-mobile {
+    display: block !important;
+  }
+}
+
 /* Responsive Navigation Styles */
 @media (max-width: 860px) {
   .desktop-nav-links {

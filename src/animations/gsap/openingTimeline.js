@@ -10,6 +10,7 @@ import { gsap } from 'gsap';
  */
 export function createOpeningTimeline(elements, onComplete) {
   const {
+    container,
     brush1,
     brush2,
     brush3,
@@ -131,4 +132,3 @@ export function createOpeningTimeline(elements, onComplete) {
 
   return tl;
 }
-

@@ -7,19 +7,14 @@ import { birthdayContent } from '../../data/birthdayContent';
 import { Sparkles } from 'lucide-react';
 
 /**
- * OpeningScreen Component - 100% Responsive & High Performance
+ * OpeningScreen Component
  * Section 7: Starts almost empty with warm buttercream screen.
- * Reveals:
- * 1. "نور"
- * 2. "كل سنة وإنتِ طيبة يا نور"
- * 3. "اليوم تكتمل سنة من عمرك... ونفسك تستحق تكون أجمل من كل اللي فات."
+ * - Computer/Desktop screens: EXACT original 1000x700 panoramic SVG layout.
+ * - Mobile screens: Calibrated portrait SVG layout where strokes never cover the text.
  * Strictly NO emojis.
  */
 export default function OpeningScreen({ onCompleteExperience }) {
   const containerRef = useRef(null);
-  const brush1Ref = useRef(null);
-  const brush2Ref = useRef(null);
-  const brush3Ref = useRef(null);
   const titleNourRef = useRef(null);
   const fullGreetingRef = useRef(null);
   const reflectionTextRef = useRef(null);
@@ -29,12 +24,18 @@ export default function OpeningScreen({ onCompleteExperience }) {
   const [, setIsDone] = useState(false);
 
   useGSAP(() => {
+    if (!containerRef.current) return;
+
+    const brush1Elements = containerRef.current.querySelectorAll('.opening-brush-1');
+    const brush2Elements = containerRef.current.querySelectorAll('.opening-brush-2');
+    const brush3Elements = containerRef.current.querySelectorAll('.opening-brush-3');
+
     const timeline = createOpeningTimeline(
       {
         container: containerRef.current,
-        brush1: brush1Ref.current,
-        brush2: brush2Ref.current,
-        brush3: brush3Ref.current,
+        brush1: brush1Elements,
+        brush2: brush2Elements,
+        brush3: brush3Elements,
         titleNour: titleNourRef.current,
         fullGreeting: fullGreetingRef.current,
         reflectionText: reflectionTextRef.current,
@@ -100,8 +101,9 @@ export default function OpeningScreen({ onCompleteExperience }) {
         }}
       />
 
-      {/* SVG Brush Strokes Layer */}
+      {/* 1. Desktop SVG Brush Strokes Layer (Exact Original from Computer Screens) */}
       <svg
+        className="opening-svg-desktop"
         style={{
           position: 'absolute',
           width: '100%',
@@ -115,7 +117,7 @@ export default function OpeningScreen({ onCompleteExperience }) {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          ref={brush1Ref}
+          className="opening-brush-1"
           d="M 280,240 Q 500,210 720,250"
           stroke="var(--color-tertiary)"
           strokeWidth="38"
@@ -125,7 +127,7 @@ export default function OpeningScreen({ onCompleteExperience }) {
         />
 
         <path
-          ref={brush2Ref}
+          className="opening-brush-2"
           d="M 220,380 C 420,350 600,430 780,360"
           stroke="var(--color-secondary)"
           strokeWidth="24"
@@ -135,7 +137,7 @@ export default function OpeningScreen({ onCompleteExperience }) {
         />
 
         <path
-          ref={brush3Ref}
+          className="opening-brush-3"
           d="M 320,510 Q 500,490 680,520"
           stroke="var(--color-primary)"
           strokeWidth="16"
@@ -145,7 +147,56 @@ export default function OpeningScreen({ onCompleteExperience }) {
         />
       </svg>
 
-      {/* Painted Typography Story Content */}
+      {/* 2. Mobile SVG Brush Strokes Layer (Calibrated Portrait View - Never Covers the Text!) */}
+      <svg
+        className="opening-svg-mobile"
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          inset: 0,
+          pointerEvents: 'none',
+          zIndex: 1
+        }}
+        viewBox="0 0 400 700"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Brush 1: Under "نور" */}
+        <path
+          className="opening-brush-1"
+          d="M 60,255 Q 200,225 340,255"
+          stroke="var(--color-tertiary)"
+          strokeWidth="30"
+          strokeLinecap="round"
+          filter="url(#brush-rough-filter)"
+          opacity="0.25"
+        />
+
+        {/* Brush 2: Under "كل سنة وإنتِ طيبة يا نور" (Safely placed so it never covers the words) */}
+        <path
+          className="opening-brush-2"
+          d="M 35,355 Q 200,335 365,355"
+          stroke="var(--color-secondary)"
+          strokeWidth="22"
+          strokeLinecap="round"
+          filter="url(#brush-rough-filter)"
+          opacity="0.35"
+        />
+
+        {/* Brush 3: Under the reflection text */}
+        <path
+          className="opening-brush-3"
+          d="M 60,465 Q 200,448 340,465"
+          stroke="var(--color-primary)"
+          strokeWidth="15"
+          strokeLinecap="round"
+          filter="url(#brush-rough-filter)"
+          opacity="0.25"
+        />
+      </svg>
+
+      {/* Painted Typography Story Content (Layered above SVG) */}
       <div
         style={{
           position: 'relative',
