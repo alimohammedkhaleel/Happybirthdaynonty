@@ -1,0 +1,108 @@
+/* Animation Utilities & Hardware Acceleration */
+
+/* Golden Light Sweep Keyframes */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(
+    115deg,
+    var(--color-primary) 10%,
+    var(--color-secondary) 45%,
+    var(--color-gold-bright) 55%,
+    var(--color-rose-vibrant) 90%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 8s linear infinite;
+  will-change: background-position;
+}
+
+/* Subtle breathing pulse */
+@keyframes subtleBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.animate-breathe {
+  animation: subtleBreathe 6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Hardware-Accelerated Mini Equalizer Bars for Music Player */
+@keyframes eqBarPulse {
+  0%, 100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.eq-bar {
+  transform-origin: bottom;
+  will-change: transform;
+}
+
+.eq-bar.playing {
+  animation: eqBarPulse 0.8s ease-in-out infinite alternate;
+}
+
+/* Floating particle subtle drift */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Tactile paper card style */
+.tactile-card {
+  background: #FFFDF7;
+  border: 1px solid rgba(227, 189, 191, 0.45);
+  box-shadow: 0 10px 30px -5px rgba(74, 40, 40, 0.06), 0 0 1px 1px rgba(245, 158, 11, 0.1);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+/* Squircle Frame */
+.squircle-frame {
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(74, 40, 40, 0.12), 0 0 0 1px rgba(245, 158, 11, 0.15);
+  transform: translateZ(0);
+}
+
+/* Pill container */
+.pill-container {
+  background: rgba(251, 249, 243, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 8px 20px -4px rgba(74, 40, 40, 0.05);
+  border-radius: 9999px;
+  transform: translateZ(0);
+}

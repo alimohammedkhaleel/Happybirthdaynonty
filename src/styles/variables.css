@@ -1,0 +1,47 @@
+:root {
+  /* Core Visual Identity: Warm Festive Tactile Elegance */
+  --color-primary: #F43F5E;       /* Festive Rose */
+  --color-secondary: #F59E0B;     /* Sunlit Champagne Gold */
+  --color-tertiary: #FB7185;      /* Soft Coral Rose */
+  --color-bg: #FFFDF7;            /* Warm Buttercream */
+  --color-text: #4A2828;          /* Deep Espresso Rose */
+  
+  /* Additional Harmonious Colors */
+  --color-rose-deep: #B90538;
+  --color-rose-vibrant: #DC2C4F;
+  --color-gold-dark: #855300;
+  --color-gold-bright: #FEA619;
+  --color-crimson-rose: #A63047;
+  --color-cream-light: #FBF9F3;
+  --color-cream-mid: #F0EEE8;
+  --color-cream-tint: #EAE8E2;
+  --color-muted-rose: #8F6F71;
+  --color-petal-pink: #E3BDBF;
+
+  /* Transparent overlay levels */
+  --color-gold-glow: rgba(245, 158, 11, 0.18);
+  --color-rose-glow: rgba(244, 63, 94, 0.15);
+  --color-butter-overlay: rgba(255, 253, 247, 0.85);
+
+  /* Typography */
+  --font-arabic: 'Alexandria', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Alexandria', 'Plus Jakarta Sans', sans-serif;
+  --font-calligraphy: 'Marhey', 'Alexandria', cursive;
+  --font-mono: 'Space Grotesk', monospace;
+  --font-body: 'Alexandria', 'Plus Jakarta Sans', sans-serif;
+
+  /* Shadows */
+  --shadow-warm-sm: 0 4px 12px rgba(74, 40, 40, 0.05);
+  --shadow-warm-md: 0 8px 24px rgba(74, 40, 40, 0.08), 0 2px 6px rgba(244, 63, 94, 0.04);
+  --shadow-warm-lg: 0 16px 40px rgba(74, 40, 40, 0.12), 0 4px 12px rgba(245, 158, 11, 0.08);
+  --shadow-gold-glow: 0 0 35px rgba(245, 158, 11, 0.35);
+  --shadow-rose-glow: 0 0 35px rgba(244, 63, 94, 0.3);
+
+  /* Transitions */
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Spacing */
+  --section-padding: clamp(4rem, 10vw, 8rem);
+}
+
